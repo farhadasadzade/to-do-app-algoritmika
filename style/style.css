@@ -94,7 +94,7 @@ table {
 }
 
 .wrapper-newtask {
-	padding: 7px 10px 7px 5px;
+	padding: 12px 25px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -213,7 +213,7 @@ table {
 
 .wrapper-taskitem p {
 	font-family: 'Roboto', sans-serif;
-	font-size: 20px;
+	font-size: 14px;
 }
 
 .dragging {
