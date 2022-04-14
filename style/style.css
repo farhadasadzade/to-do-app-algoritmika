@@ -205,7 +205,7 @@ table {
 }
 
 .wrapper-taskitem {
-	padding: 12px 25px;
+	padding: 12px 10px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -219,4 +219,28 @@ table {
 .dragging {
 	opacity: 0.7;
     transform: scale(1.1);
+}
+
+.wrapper-taskstatus {
+	display: flex;
+	align-items: center;
+}
+
+.wrapper-taskstatus>button {
+	margin-right: 5px;
+	background: none;
+    border: 1px solid #c4c4c4;
+    border-radius: 50%;
+    width: 18px;
+	height: 18px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	font-weight: 700;
+}
+
+.taskcompleted {
+	background: linear-gradient(270deg, hsla(182, 64%, 53%, 1) 0%, hsla(34, 98%, 50%, 1) 57%, hsla(323, 100%, 47%, 1) 100%);
 }
