@@ -16,7 +16,10 @@ addBtn.addEventListener('click', () => {
           task.classList.add('wrapper-taskitem')
           taskList.appendChild(task)
           task.setAttribute('draggable', 'true')
-          task.innerHTML = `<p>${input.value}</p>
+          task.innerHTML = `<div class='wrapper-taskstatus'>
+          <button class='completebtn'></button>
+          <p>${input.value}</p>
+          </div>
           <div class="wrapper-btns">
             <button class="wrapper-taskedit">E</button>
             <button class="wrapper-taskdelete">X</button>
@@ -55,14 +58,27 @@ addBtn.addEventListener('click', () => {
           let oldName = name.innerHTML
           name.remove()
           newInput.value = oldName
-          e.insertBefore(newInput, e.querySelector('.wrapper-btns'))
+          e.querySelector('.wrapper-taskstatus').appendChild(newInput)
           event.target.innerHTML = '✓'
         }else {
           const newName = document.createElement('p')
           newName.innerHTML = e.querySelector('input').value
-          e.insertBefore(newName, e.querySelector('.wrapper-btns'))
+          e.querySelector('.wrapper-taskstatus').appendChild(newName)
           e.querySelector('input').remove()
           event.target.innerHTML = 'E'
+        }
+      })
+
+      e.querySelector('.wrapper-taskstatus .completebtn').addEventListener('click', (event) => {
+        event.stopImmediatePropagation();
+        if(e.querySelector('.wrapper-taskstatus .completebtn').innerHTML == ''){
+          e.querySelector('.wrapper-taskstatus .completebtn').innerHTML = '✓'
+          e.querySelector('.wrapper-taskstatus p').style.textDecorationLine = 'line-through'
+          e.querySelector('.wrapper-taskstatus .completebtn').style.backgroundImage = 'linear-gradient(270deg, hsla(182, 100%, 50%, 1) 0%, hsla(114, 84%, 54%, 1) 51%, hsla(224, 55%, 51%, 1) 99%)'
+        }else {
+          e.querySelector('.wrapper-taskstatus .completebtn').innerHTML = ''
+          e.querySelector('.wrapper-taskstatus p').style.textDecorationLine = 'none'
+          e.querySelector('.wrapper-taskstatus .completebtn').style.background = 'none'
         }
       })
 
